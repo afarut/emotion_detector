@@ -5,5 +5,33 @@
 </head>
 <body>
 
+<form method="POST", enctype="multipart/form-data">
+
+<label for="party">Выберите время когда началась ваша конференция</label>
+<input
+  id="party"
+  type="datetime-local"
+  name="partydate" required="" />
+
+<br>
+
+<label for="title">Напишите название конференции или напишите ключевые слова</label>
+<input id="title" name="title" required=""/>
+
+<br>
+
+<input type="file" name="file" required="">
+
+<br>
+
+<input type="submit" value="Отправить">
+
+</form>
+
+{% if post -%}
+{{partydate}}
+{% endif %}
+
+
 </body>
 </html>
