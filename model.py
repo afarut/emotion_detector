@@ -3,11 +3,17 @@ from ultralytics import YOLO
 
 class EmotionDetector:
 	def __init__(self):
-		self.layer1 = YOLO('yolo.pth')
-		# get classes - self.layer1(array)[index].boxes.cls
-		# get coords - self.layer1(array)[index].boxes.xyxy
+		self.yolo = YOLO('yolo.pth')
+		# get classes - self.yolo(array)[index].boxes.cls
+		# get coords - self.yolo(array)[index].boxes.xyxy
 
 	def to(self, device):
-		self.layer1 = self.layer1.to(device)
+		self.yolo = self.yolo.to(device)
 		# Add layers
 		return self
+
+	def __call__(self, file_path):
+		if file_path: # is video
+			pass
+		else: # is audio only
+			pass
